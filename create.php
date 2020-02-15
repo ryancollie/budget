@@ -7,9 +7,11 @@
     <body>
         <h1>Budgeting App</h1><br>
         <form action="welcome.html" method="get">
-            Username <input type="text" id="user" name="user"><br>
-            Password <input type="password" id="pass" name="user"><br>
-            <input type="submit" id="login" name="login" value="Create account"><br>
+            <input type="text" id="user" name="create" placeholder="Create a username">*<br>
+            <input type="password" id="pass" name="create" placeholder="Create a password">*<br>
+            <input type="text" id="first" name="create" placeholder="First name">*<br>
+            <input type="text" id="last" name="create" placeholder="Last name">*<br>
+            <input type="submit" id="login" name="create" value="Create account"><br>
         </form>
         
     </body>
@@ -18,6 +20,8 @@
 <?php
 $user = $_GET['user'];
 $pass = $_GET['pass'];
+$first = $_GET['first'];
+$last = $_GET['last'];
 
 $db_servername = "localhost";
 $db_username = "root";
