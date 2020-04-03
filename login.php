@@ -3,7 +3,7 @@ session_start();
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
-if(action === "login")
+if($action === "login")
 {
     $user = isset($_REQUEST['user']) ? $_REQUEST['user'] : '';
     $pass = isset($_REQUEST['pass']) ? $_REQUEST['pass'] : '';
@@ -18,30 +18,32 @@ if(action === "login")
         die("Connection failed: " . $db_conn->connect_error);
     }
 
-    $sql = "SELECT * FROM users WHERE username = '".$user."' and password = '".$pass."'";
+    $sql = "SELECT * FROM login WHERE username = '".$user."' and password = '".$pass."'";
 
     $db_result = $db_conn->query($sql);
 
 	if ($db_result->num_rows > 0) {
 		$_SESSION["isLoggedIn"] = true;
-		$_SESSION["username"] = $username;
+        $_SESSION["user"] = $user;
     }
-    elseif ($action === "logout") {
-					
-        session_unset(); 
-        session_destroy(); 	
-        
-    }
+    
+} elseif ($action === "logout") {
+    session_unset(); 
+    session_destroy();
+}
 
-    $isLoggedIn = isset($_SESSION['isLoggedIn']) ? $_SESSION['isLoggedIn'] : false;
+$isLoggedIn = isset($_SESSION['isLoggedIn']) ? $_SESSION['isLoggedIn'] : false;
 
-    if($isLoggedIn)
-    {
-        header("Location: main.php");
-    }
-    else
-    {
-        header("Location: index.php?action=fail");
-    }
+if($isLoggedIn === true)
+{
+    header("Location: main.php");
+}
+elseif($action === "logout")
+{
+    header("Location: index.php");
+}
+else
+{
+    header("Location: index.php?action=fail");
 }
 ?>

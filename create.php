@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
     <head>
-        <meta charset=UTF-8>
+        <meta charset="UTF-8">
         <title>Create an account</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Budgeting App</h1><br>
@@ -11,11 +12,11 @@
         $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
         if($action === "retryuser")
         {
-            echo "<p>Username taken</p>";
+            echo "<p class='retry'>Username taken</p>";
         }
         if($action === "retrypass")
         {
-            echo "<p>Passwords don't match</p>";
+            echo "<p class='retry'>Passwords don't match</p>";
         }
         ?>
 
