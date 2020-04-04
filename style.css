@@ -1,3 +1,11 @@
 .retry{
     color: red;
 }
+
+body{
+    font-family: verdana;
+    color: #4F5C69;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}

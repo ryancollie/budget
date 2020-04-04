@@ -36,9 +36,13 @@
         {
             header("Location: create.php?action=retrypass");
         }
+        elseif(empty($user) || empty($pass) || empty($pass2))
+        {
+            header("Location: create.php?action=empty");
+        }
         else
         {
-            echo "<h1><a href=\"index.php\">Account created. Click here to login.</a></h1>";
+            echo "<h1 style='text-align: center'><a href=\"index.php\">Account created. Click here to login.</a></h1>";
             $sql = "insert into login values ('".$user."', '".$pass."')";
             $db_conn->query($sql);
             $sql = "insert into users values ('".$user."', '".$first."', '".$last."')";

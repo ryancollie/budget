@@ -18,6 +18,10 @@
         {
             echo "<p class='retry'>Passwords don't match</p>";
         }
+        if($action === "empty")
+        {
+            echo "<p class='retry'>All fields required</p>";
+        }
         ?>
 
         <form action="success.php" method="post">
